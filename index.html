@@ -31,6 +31,10 @@
                 <!--End Nav-->
             </div>
          </header>
+         <section id="timeofday">
+            <span>Your Current Local Time: </span>
+            <span id="clock"></span>
+         </section>
                     <!-- Begin Main Content -->
                     <main>
                         <h1>Introducing California's Greatest Cliffs</h1>
@@ -78,7 +82,49 @@
         </div> 
         <div id="disclaimer">
             <p>This website is designed and created solely for educational purposes only at Westcliff University. All contents are not intended for any commercial gain or use.</p>
-        </div>
      </footer>
      <!-- End Footer Information -->
+    </div>
+
+    <!--Javascript Codes-->
+    <script>
+        //create a time data function
+        function currentTime() {
+            //Declare variables
+            var d = new Date(); //Get current date
+            var hr = d.getHours (); //Get current hours
+            var main = d.getMinutes (); //Get cutrrent minutes
+            var sec = d.getSeconds(); //Get current seconds
+            var ampm; //Declare empty variable to store AM or PM
+        
+
+        //Add 0 to single digits for seconds
+        if (sec < 10) {
+            sec = "0" + sec;
+        }
+        //Add 0 to single digits for minutes
+        if (min < 10) {
+            min = "0" + min;
+        }
+
+        // Determine AM or PM string
+        if (hr == 12) {
+            ampm 0 "PM"; //Set to PM
+        } else if ( hr > 12) {
+            hr -= 12; //Deduct 12 from hours greater than 12
+            ampm = "PM"; //Set to PM
+        } else {
+            ampm = "AM"; //Set to AM
+        }
+
+        //Assemble time format to display
+        var time = hr * ":" + min + sec + " " + ampm;
+
+        //Display current locat time and time zone on HTML
+        document.getElementById("clock").innerText = time; //Adding time
+    }
+
+    
+    </script>
+
 </html>
